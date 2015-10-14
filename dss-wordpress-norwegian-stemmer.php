@@ -4,7 +4,7 @@ Plugin Name: Norwegian Stemmer for SearchWP
 Plugin URI: https://github.com/dss-web/dss-wordpress-norwegian-stemmer
 Description:
 Author: Per Soderlind
-Version: 0.1.0
+Version: 0.1.1
 Author URI: http://soderlind.no
 GitHub Plugin URI: dss-web/dss-wordpress-norwegian-stemmer
 */
@@ -82,7 +82,7 @@ function dss_norwegian_stemmer( $unstemmed ) {
     // be sure that word is stemmable
     if (false !== ctype_alpha($unstemmed)) {
 		$stemmed = NorwegianStemmer::Stem($unstemmed);
-		write_log (sprintf("NorwegianStemmer unstemmed: %s stemmed: %s", $unstemmed, $stemmed));
+		//write_log (sprintf("NorwegianStemmer unstemmed: %s stemmed: %s", $unstemmed, $stemmed));
 		return sanitize_text_field( $stemmed );
 	} else {
 		return $unstemmed;
