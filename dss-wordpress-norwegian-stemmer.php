@@ -56,6 +56,9 @@ function dss_norwegian_stopwords($terms) {
 
 add_filter( 'searchwp_common_words', 'dss_norwegian_stopwords' );
 
+// Tell SearchWP we have a stemmer
+add_filter( 'searchwp_keyword_stem_locale', '__return_true' );
+
 
 if (!function_exists('write_log')) {
     function write_log ( $log )  {
