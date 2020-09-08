@@ -9,92 +9,213 @@ Author URI: http://soderlind.no
 GitHub Plugin URI: dss-web/dss-wordpress-norwegian-stemmer
 */
 
-function dss_norwegian_stopwords($terms) {
-	/*
-	// nb_NO and nn_NO, source http://snowball.tartarus.org/algorithms/norwegian/stop.txt
-	$terms = array('og', 'i', 'jeg', 'det', 'at', 'en', 'et', 'den', 'til', 'er',
-		'som', 'på', 'de', 'med', 'han', 'av', 'ikke', 'ikkje', 'der', 'så',
-		'var', 'meg', 'seg', 'men', 'ett', 'har', 'om', 'vi', 'min', 'mitt',
-		'ha', 'hadde', 'hun', 'nå', 'over', 'da', 'ved', 'fra', 'du', 'ut',
-		'sin', 'dem', 'oss', 'opp', 'man', 'kan', 'hans', 'hvor', 'eller',
-		'hva', 'skal', 'selv', 'sjøl', 'her', 'alle', 'vil', 'bli', 'ble',
-		'blei', 'blitt', 'kunne', 'inn', 'når', 'være', 'kom', 'noen', 'noe',
-		'ville', 'dere', 'som', 'deres', 'kun', 'ja', 'etter', 'ned',
-		'skulle', 'denne', 'for', 'deg', 'si', 'sine', 'sitt', 'mot', 'å',
-		'meget', 'hvorfor', 'dette', 'disse', 'uten', 'hvordan', 'ingen',
-		'din', 'ditt', 'blir', 'samme', 'hvilken', 'hvilke', 'sånn', 'inni',
-		'mellom', 'vår', 'hver', 'hvem', 'vors', 'hvis', 'både', 'bare',
-		'enn', 'fordi', 'før', 'mange', 'også', 'slik', 'vært', 'være', 'båe',
-		'begge', 'siden', 'dykk', 'dykkar', 'dei', 'deira', 'deires', 'deim',
-		'di', 'då', 'eg', 'ein', 'eit', 'eitt', 'elles', 'honom', 'hjå', 'ho',
-		'hoe', 'henne', 'hennar', 'hennes', 'hoss', 'hossen', 'ikkje', 'ingi',
-		'inkje', 'korleis', 'korso', 'kva', 'kvar', 'kvarhelst', 'kven',
-		'kvi', 'kvifor', 'me', 'medan', 'mi', 'mine', 'mykje', 'no', 'nokon',
-		'noka', 'nokor', 'noko', 'nokre', 'si', 'sia', 'sidan', 'so', 'somt',
-		'somme', 'um', 'upp', 'vere', 'vore', 'verte', 'vort', 'varte',
-		'vart'
-	);
-	*/
-	// nb_NO, source https://code.google.com/p/stop-words/
-    $terms = array( 'å', 'alle', 'andre', 'arbeid', 'av', 'begge',
-		'bort', 'bra', 'bruke', 'da', 'denne', 'der', 'deres', 'det', 'din',
-		'disse', 'du', 'eller', 'en', 'ene', 'eneste', 'enhver', 'enn', 'er',
-		'et', 'få', 'folk', 'for', 'fordi', 'forsøke', 'fra', 'før', 'først',
-		'gå', 'gjorde', 'gjøre', 'god', 'ha', 'hadde', 'han', 'hans',
-		'hennes', 'her', 'hva', 'hvem', 'hver', 'hvilken', 'hvis', 'hvor',
-		'hvordan', 'hvorfor', 'i', 'ikke', 'inn', 'innen', 'kan', 'kunne',
-		'lage', 'lang', 'lik', 'like', 'må', 'makt', 'mange', 'måte', 'med',
-		'meg', 'meget', 'men', 'mens', 'mer', 'mest', 'min', 'mye', 'nå',
-		'når', 'navn', 'nei', 'ny', 'og', 'også', 'om', 'opp', 'oss', 'over',
-		'på', 'part', 'punkt', 'rett', 'riktig', 'så', 'samme', 'sant', 'si',
-		'siden', 'sist', 'skulle', 'slik', 'slutt', 'som', 'start', 'stille',
-		'tid', 'til', 'tilbake', 'tilstand', 'under', 'ut', 'uten', 'var',
-		'vår', 'ved', 'verdi', 'vi', 'vil', 'ville', 'vite', 'være', 'vært'
-	);
-    return $terms;
-}
+namespace DSS\Plugin\SearchWP;
 
-add_filter( 'searchwp_stopwords', 'dss_norwegian_stopwords' );
+add_filter( 'searchwp_stopwords', function() {
+	// nb_NO and nn_NO, source http://snowball.tartarus.org/algorithms/norwegian/stop.txt
+	return [
+		'å',
+		'alle',
+		'at',
+		'av',
+		'både',
+		'båe',
+		'bare',
+		'begge',
+		'ble',
+		'blei',
+		'bli',
+		'blir',
+		'blitt',
+		'da',
+		'då',
+		'de',
+		'deg',
+		'dei',
+		'deim',
+		'deira',
+		'deires',
+		'dem',
+		'den',
+		'denne',
+		'der',
+		'dere',
+		'deres',
+		'det',
+		'dette',
+		'di',
+		'din',
+		'disse',
+		'ditt',
+		'du',
+		'dykk',
+		'dykkar',
+		'eg',
+		'ein',
+		'eit',
+		'eitt',
+		'eller',
+		'elles',
+		'en',
+		'enn',
+		'er',
+		'et',
+		'ett',
+		'etter',
+		'for',
+		'før',
+		'fordi',
+		'fra',
+		'ha',
+		'hadde',
+		'han',
+		'hans',
+		'har',
+		'hennar',
+		'henne',
+		'hennes',
+		'her',
+		'hjå',
+		'ho',
+		'hoe',
+		'honom',
+		'hoss',
+		'hossen',
+		'hun',
+		'hva',
+		'hvem',
+		'hver',
+		'hvilke',
+		'hvilken',
+		'hvis',
+		'hvor',
+		'hvordan',
+		'hvorfor',
+		'i',
+		'ikke',
+		'ikkje',
+		'ikkje',
+		'ingen',
+		'ingi',
+		'inkje',
+		'inn',
+		'inni',
+		'ja',
+		'jeg',
+		'kan',
+		'kom',
+		'korleis',
+		'korso',
+		'kun',
+		'kunne',
+		'kva',
+		'kvar',
+		'kvarhelst',
+		'kven',
+		'kvi',
+		'kvifor',
+		'man',
+		'mange',
+		'me',
+		'med',
+		'medan',
+		'meg',
+		'meget',
+		'mellom',
+		'men',
+		'mi',
+		'min',
+		'mine',
+		'mitt',
+		'mot',
+		'mykje',
+		'nå',
+		'når',
+		'ned',
+		'no',
+		'noe',
+		'noen',
+		'noka',
+		'noko',
+		'nokon',
+		'nokor',
+		'nokre',
+		'og',
+		'også',
+		'om',
+		'opp',
+		'oss',
+		'over',
+		'på',
+		'så',
+		'samme',
+		'sånn',
+		'seg',
+		'selv',
+		'si',
+		'si',
+		'sia',
+		'sidan',
+		'siden',
+		'sin',
+		'sine',
+		'sitt',
+		'sjøl',
+		'skal',
+		'skulle',
+		'slik',
+		'so',
+		'som',
+		'som',
+		'somme',
+		'somt',
+		'til',
+		'um',
+		'upp',
+		'ut',
+		'uten',
+		'være',
+		'være',
+		'vært',
+		'var',
+		'vår',
+		'vart'
+		'varte',
+		'ved',
+		'vere',
+		'verte',
+		'vi',
+		'vil',
+		'ville',
+		'vore',
+		'vors',
+		'vort',
+	];
+	
+});
 
 // Tell SearchWP we have a stemmer
 add_filter( 'searchwp_keyword_stem_locale', '__return_true' );
-
-
-if (!function_exists('write_log')) {
-    function write_log ( $log )  {
-        if ( true === WP_DEBUG ) {
-            if ( is_array( $log ) || is_object( $log ) ) {
-                error_log( print_r( $log, true ) );
-            } else {
-                error_log( $log );
-            }
-        }
-    }
-}
-
+add_filter( 'searchwp_custom_stemmer', __NAMESPACE__ . '\dss_norwegian_stemmer' );
 
 function dss_norwegian_stemmer( $unstemmed ) {
 	if ( ! class_exists( 'NorwegianStemmer' ) ) {
 		return $unstemmed;
 	}
-    // remove whitespace
-    $unstemmed = rtrim($unstemmed);
-    // convert to lowercase
-    $unstemmed = strtolower($unstemmed);
-
-    // be sure that word is stemmable
-    if (false !== ctype_alpha($unstemmed)) {
-		$stemmed = NorwegianStemmer::Stem($unstemmed);
-		//write_log (sprintf("NorwegianStemmer unstemmed: %s stemmed: %s", $unstemmed, $stemmed));
+	
+	// remove whitespace
+	$unstemmed = rtrim( $unstemmed );
+	// convert to lowercase
+	$unstemmed = strtolower( $unstemmed );
+	
+	// be sure that word is stemmable
+	if (false !== ctype_alpha( $unstemmed )) {
+		$stemmed = NorwegianStemmer::Stem( $unstemmed );
 		return sanitize_text_field( $stemmed );
 	} else {
 		return $unstemmed;
 	}
 }
-
-add_filter( 'searchwp_custom_stemmer', 'dss_norwegian_stemmer' );
-
-
 
 
 /**
