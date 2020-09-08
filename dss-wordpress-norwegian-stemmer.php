@@ -4,7 +4,7 @@
  * Plugin URI: https://github.com/dss-web/dss-wordpress-norwegian-stemmer
  * Description:
  * Author: Per Soderlind
- * Version: 0.2.1
+ * Version: 0.3.0
  * Author URI: http://soderlind.no
  * GitHub Plugin URI: dss-web/dss-wordpress-norwegian-stemmer
  *
