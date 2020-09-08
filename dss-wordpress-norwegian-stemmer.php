@@ -4,7 +4,7 @@ Plugin Name: Norwegian Stemmer for SearchWP
 Plugin URI: https://github.com/dss-web/dss-wordpress-norwegian-stemmer
 Description:
 Author: Per Soderlind
-Version: 0.1.2
+Version: 0.2.0
 Author URI: http://soderlind.no
 GitHub Plugin URI: dss-web/dss-wordpress-norwegian-stemmer
 */
