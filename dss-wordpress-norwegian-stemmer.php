@@ -11,7 +11,7 @@ GitHub Plugin URI: dss-web/dss-wordpress-norwegian-stemmer
 
 namespace DSS\Plugin\SearchWP;
 
-add_filter( 'searchwp_stopwords', function() {
+add_filter( 'searchwp_stopwords', function( $n ) {
 	// nb_NO and nn_NO, source http://snowball.tartarus.org/algorithms/norwegian/stop.txt
 	return [
 		'å',
