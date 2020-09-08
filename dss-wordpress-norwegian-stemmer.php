@@ -4,15 +4,12 @@
  * Plugin URI: https://github.com/dss-web/dss-wordpress-norwegian-stemmer
  * Description:
  * Author: Per Soderlind
- * Version: 0.3.1
+ * Version: 0.3.2
  * Author URI: http://soderlind.no
  * GitHub Plugin URI: dss-web/dss-wordpress-norwegian-stemmer
  *
  * @package DSS_Plugins
  */
-
-declare( strict_types = 1 );
-namespace DSS\Plugin\SearchWP;
 
 add_filter(
 	'searchwp_stopwords',
@@ -202,7 +199,7 @@ add_filter(
 
 // Tell SearchWP we have a stemmer.
 add_filter( 'searchwp_keyword_stem_locale', '__return_true' );
-add_filter( 'searchwp_custom_stemmer', __NAMESPACE__ . '\dss_norwegian_stemmer' );
+add_filter( 'searchwp_custom_stemmer', 'dss_norwegian_stemmer' );
 
 /**
  * Norwegian stemmer.
