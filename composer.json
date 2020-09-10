@@ -1,0 +1,8 @@
+{
+    "name": "dss-web/dss-wordpress-norwegian-stemmer",
+    "description": "Norwegian Stemmer for SearchWP",
+    "type": "wordpress-plugin",
+    "homepage": "https://github.com/dss-web/dss-wordpress-norwegian-stemmer",
+    "license": "GPL-2.0-or-later",
+    "require": {}
+}
